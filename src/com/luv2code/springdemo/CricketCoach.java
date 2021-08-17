@@ -5,10 +5,12 @@ public class CricketCoach implements Coach{
     private FortuneService fortuneService;
 
     public CricketCoach() {
+        System.out.println("Hello, I'm the line from  the constructor!");
     }
 
     public void setFortuneService(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
+        System.out.println("Hello, I'm the line from  the Setter Method!");
     }
 
     @Override
