@@ -45,6 +45,16 @@
 		<constructor-arg ref="happyFortuneService"/>
 	</bean>
 
+	<!--
+	Setter injection of property "fortuneService".
+	Remember: to Inject property by XML, I need to have setter method that matches the name of property
+	(set+propertyName = setfortunesevice) AND this setter HAVE TO BE PUBLIC!!!
+	-->
+	<bean id="myCricketCoach"
+		  class="com.luv2code.springdemo.CricketCoach">
+		<property name="fortuneService" ref="happyFortuneService"/>
+	</bean>
+
 </beans>
 
 
