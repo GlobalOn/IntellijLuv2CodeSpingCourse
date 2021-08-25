@@ -7,16 +7,20 @@ public class SpringHelloApp {
         //Load the Spring configuration file
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
+//        //Retrieve bean from Spring container
+//        Coach theTennisCoach = context.getBean("myCoach", Coach.class);
+//        //***CricketCoach
+//        CricketCoach cricketCoach = context.getBean("myCricketCoach", CricketCoach.class);
+
         //Retrieve bean from Spring container
-        Coach theCoach = context.getBean("myCoach", Coach.class);
-        //***CricketCoach
-        Coach cricketCoach = context.getBean("myCricketCoach", Coach.class);
+        TennisCoach theTennisCoach = context.getBean("myTennisCoach", TennisCoach.class);
 
         //Call methods on the bean
-//        System.out.println(theCoach.getDailyWorkout());
-//        System.out.println(theCoach.getDailyFortune());
-        System.out.println(cricketCoach.getDailyWorkout());
-        System.out.println(cricketCoach.getDailyFortune());
+        System.out.println(theTennisCoach.getDailyWorkout());
+        System.out.println(theTennisCoach.getDailyFortune());
+        System.out.println(theTennisCoach.getName());
+        System.out.println(theTennisCoach.getEmail());
+        System.out.println(theTennisCoach.getTeam());
         //Close the context
         context.close();
     }

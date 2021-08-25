@@ -30,6 +30,12 @@
 	FINEST - writing everything in Loggs
 	- For info on logging levels, see: http://www.vogella.com/tutorials/Logging/article.html
  -->
+
+	<!--
+	Next line will be used to load in Spring container .properties file
+	-->
+	<context:property-placeholder location="classpath:cricketCoach.properties, classpath:tennisCoach.properties"/>
+
 	<bean id="myLoggerConfig" class="com.luv2code.springdemo.MyLoggerConfig" init-method="initLogger">
 		<property name="rootLoggerLevel" value="FINE"/>
 		<property name="printedLoggerLevel" value="FINE"/>
@@ -39,10 +45,23 @@
 		  class="com.luv2code.springdemo.HappyFortuneService">
 	</bean>
 
+	<bean id="encourageFortuneService"
+		  class="com.luv2code.springdemo.EncourageFortuneService">
+	</bean>
+
 
 	<bean id="myCoach"
 		  class="com.luv2code.springdemo.BaseballCoach">
 		<constructor-arg ref="happyFortuneService"/>
+	</bean>
+
+	<bean id="myTennisCoach"
+		  class="com.luv2code.springdemo.TennisCoach">
+		<constructor-arg ref="encourageFortuneService"/>
+
+		<property name="name" value="${tennisCoach.name}"/>
+		<property name="email" value="${tennisCoach.email}"/>
+		<property name="team" value="${tennisCoach.team}"/>
 	</bean>
 
 	<!--
@@ -53,6 +72,15 @@
 	<bean id="myCricketCoach"
 		  class="com.luv2code.springdemo.CricketCoach">
 		<property name="fortuneService" ref="happyFortuneService"/>
+		<!--
+		Injecting literal value by XML setter methods HARDCODED.
+		-->
+		<property name="name" value="TED"/>
+		<!--
+		Injecting literal values by XML setter methods from loaded cricketCoach.properties file.
+		-->
+		<property name="email" value="${cricketCoach.email}"/>
+		<property name="team" value="${cricketCoach.team}"/>
 	</bean>
 
 </beans>
