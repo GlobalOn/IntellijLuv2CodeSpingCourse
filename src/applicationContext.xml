@@ -56,7 +56,10 @@
 	</bean>
 
 	<bean id="myTennisCoach"
-		  class="com.luv2code.springdemo.TennisCoach">
+		  class="com.luv2code.springdemo.TennisCoach"
+	init-method="initTennisCoach"
+	destroy-method="destroyTennisCoachMethod"
+	scope="singleton">
 		<constructor-arg ref="encourageFortuneService"/>
 
 		<property name="name" value="${tennisCoach.name}"/>

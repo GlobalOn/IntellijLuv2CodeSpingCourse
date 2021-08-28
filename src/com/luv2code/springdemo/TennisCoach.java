@@ -44,4 +44,12 @@ public class TennisCoach implements Coach{
     public String getDailyFortune() {
         return "Just Do It! " + fortuneService.getFortune();
     }
+
+    public void initTennisCoach() {
+        System.out.println("Init method called from: " + this.getClass().getName());
+    }
+
+    public void destroyTennisCoachMethod() {
+        System.out.println("Destruction of TennisCoach bean " + this.getClass().getName());
+    }
 }
