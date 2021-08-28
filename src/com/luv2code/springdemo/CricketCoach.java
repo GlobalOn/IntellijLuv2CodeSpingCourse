@@ -8,7 +8,6 @@ public class CricketCoach implements Coach {
     private String name;
 
     public CricketCoach() {
-        System.out.println("Hello, I'm the line from  the CricketCoach constructor!");
     }
 
     public void setEmail(String email) {
@@ -25,7 +24,6 @@ public class CricketCoach implements Coach {
 
     public void setFortuneService(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
-        System.out.println("Hello, I'm the line from  the Setter Method!");
     }
 
     public String getEmail() {
